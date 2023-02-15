@@ -6,7 +6,7 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 } // not yet
 
 
 //                                         **********************   MEME MODAL
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
+
 var gMeme = {
     selectedImgId: '',
     selectedLineIdx: 0,
@@ -47,16 +47,19 @@ gMeme.lines[0].borderColor = strokeColor
     console.log('gMeme', gMeme);
 }
 
-function setFontSize (fontsize){
-    gMeme.lines[0].size
-}
+
 
 function setMemeText (text){
     console.log(text);
-    
     gMeme.lines[0].txt = text
-
     console.log(gMeme);
     
 }
+
+function changeFontSize (sign) {
+        const { lines } = gMeme;
+        lines[0].size += sign;
+}
+
+
 //                              ********** END OF functions that gets the vlas from the USER CONTROLER => change gMeme **************

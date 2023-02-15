@@ -19,8 +19,8 @@ function renderMeme() {
     console.log('meme', meme);
     
     const {selectedImgId } = getMeme()
-    console.log('meme', meme);
     drawImg(selectedImgId)
+
     const [{size, txt, align, color, strokeColor}] = meme.lines;
     console.log('color', color);
     console.log('strokeColor', strokeColor);
@@ -47,10 +47,14 @@ function renderMeme() {
 
 
 //                                                          *********** USER PICKS ******************
-// function changeFontSize(ev) {
-//     const fontSize = ev.value
-//     console.log('ev', ev);
-// }
+
+function onMakeSign(btn) {
+    var btnSign = btn.textContent
+   const sizeSign = (btnSign === "+") ? 1 : -1;
+   changeFontSize (sizeSign)
+   renderMeme()
+}
+
 function onSetStrokeColor(ev) {
     const StrokeColor = ev.value
     setStrokeColor (StrokeColor)
@@ -81,12 +85,10 @@ console.log(text,strokeColor, color, x, y, fontSize);
 console.log('color', color);
 console.log('fontSize', fontSize);
 
-
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
     // gCtx.fillStyle = 'pink'
     gCtx.font = `${fontSize}px Arial`
-
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
   }
