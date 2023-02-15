@@ -9,7 +9,8 @@
     <title>SPRINT 2</title>
 </head>
 
-<body onload="renderMems()">
+<!-- *************** fisrt function that works + nav bar ********************  -->
+<body onload="renderMemsImgs(), init()" >
     <header class="main-header flex space-between align-center full">
         <div class="logo">Blogo</div>
         <nav class="main-nav">
@@ -19,21 +20,33 @@
             </ul>
         </nav>
     </header>
+    <!-- ************ end of the nav bar ************ -->
 
 
     <!-- this line will get all of the imgs -->
     <section class="meme-continer"> </section>
     <!-- end of section that gets the imgs -->
 
-    <section></section>
+
+    <!-- *********** continer section ************** -->
+
+    <section class="meme-editor">
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="600" width="600"> </canvas>
+            <input type="text">
+            <button class="+" onclick="changeFontSize(this)">+</button>
+            <button class="-" onclick="changeFontSize(this)">-</button>
+            <input type="color" onchange="onSetStrokeColor(this)">change stroke color </input>
+            <input type="color" onchange="onSetTxtColor(this)">change tex color color </input>
+        </div>
+    </section>
+    <!-- ************ end of continer section *************** -->
 
 
 
-
-
+    <script src="js/services/meme-editor-service.js"></script>
     <script src="js/image-gallery-controller.js"></script>
     <script src="js/meme-editor-controller.js"></script>
-    <script src="js/services/meme-editor-service.js"></script>
     <script src="js/services/image-gallery-service.js"></script>
 </body>
 

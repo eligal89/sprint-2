@@ -116,18 +116,20 @@ function getImgs (){
     return gImgs
 }
 
-//not suer yet
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }
-    ]
-}
+
+
+//this function will get the id of the MEMEIMG from gallery and i can canvas the img
+// function getClickedMeme(memeId) {
+//     console.log('memeId', memeId);
+//     console.log('gMeme', gMeme);
+    
+//     }
+
+
+
+
+
+
+
 
 
