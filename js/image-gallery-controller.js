@@ -3,7 +3,7 @@
 
 //the function the onlode first => puts all the imgs as a buttons on the web page
 function renderMems(){
-    let imgs = getImgs ()
+    // let imgs = getImgs ()
     var strHTML= ''
     strHTML= imgs.map(function(img){
     return strHTML = `<button class="gallery-imgs"></button> <img OnClick="onImgSelect(this)" id="${img.id}" src="${img.url}"></button>`
