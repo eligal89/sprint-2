@@ -19,7 +19,6 @@ function onImgSelect(ev){
 const imgId = ev.id
 // console.log('imgId', imgId);
 getClickedMeme(imgId)
-console.log(gMeme);
 renderMeme()
 }
 
