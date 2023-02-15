@@ -3,10 +3,10 @@
 
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+
+
+
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
-
-
-
 var gMeme = {
     selectedImgId: '',
     selectedLineIdx: 0,
@@ -48,3 +48,11 @@ function setFontSize (fontsize){
     gMeme.lines[0].size
 }
 
+function setMemeText (text){
+    console.log(text);
+    
+    gMeme.lines[0].txt = text
+
+    console.log(gMeme);
+    
+}

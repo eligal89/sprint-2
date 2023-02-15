@@ -19,11 +19,11 @@ function renderMeme() {
     const {selectedImgId } = getMeme()
     drawImg(selectedImgId)
 
-    const [{size, txt, align, color}] = meme.lines;
+    const [{size, txt, align, color, strokeColor}] = meme.lines;
 
-    // drawText(x, y, size, color, txt, font)
-    // drawText(x, y, size, color, txt, font)
-
+    
+     drawText(txt,strokeColor, color, 100, 200, size)
+     drawText(txt,strokeColor, color, 200, 600, size)
     // function drawText(size , x, y, , txt, font) {
     //     gCtx.fillStyle = size
 
@@ -37,10 +37,6 @@ function renderMeme() {
     //     gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
     // }
     
-
-
-
-
 }
 
 function resizeCanvas() {
@@ -49,6 +45,12 @@ function resizeCanvas() {
   gElCanvas.width = elContainer.offsetWidth
   // Unless needed, better keep height fixed.
   // gElCanvas.height = elContainer.offsetHeight
+}
+
+
+function onSetText() {
+   const elInput = document.querySelector('.memeInput')
+   setMemeText (elInput.value)
 }
 
 
@@ -69,10 +71,27 @@ function onSetTxtColor(ev) {
 }
 
 
-
 //******CANVAS FUNCTONS****************/
 function drawImg(id) {
     let elImg = document.getElementById(id)
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
+
+
+
+
+
+
+
+
+
+function drawText(text, strokeColor, color, x, y, fontSize) {
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = strokeColor
+    gCtx.fillStyle = color
+    gCtx.font = `${fontSize}px Arial`
+
+    gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
+    gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
+  }

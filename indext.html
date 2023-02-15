@@ -33,7 +33,12 @@
     <section class="meme-editor">
         <div class="canvas-container">
             <canvas id="my-canvas" height="600" width="600"> </canvas>
-            <input type="text">
+
+           
+                <input type="text" class="memeInput" placeholder="Type your meme...">
+                <button onclick="onSetText()">create!</button>
+           
+
             <button class="+" onclick="changeFontSize(this)">+</button>
             <button class="-" onclick="changeFontSize(this)">-</button>
             <input type="color" onchange="onSetStrokeColor(this)">change stroke color </input>
