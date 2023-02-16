@@ -1,19 +1,27 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
 }
 
 html {
     color: var(--clr2);
     font-family: playfair, serif;
     line-height: 1.5;
+    
 }
 
 body {
+    margin-left: 3rem;
+    margin-left: 3rem;
     font-size: 0.875rem;
     margin: 0;
+    background-color: lightslategray;
 }
 
 img {
+    height: 100%;
     width: 100%;
 }
 

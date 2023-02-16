@@ -1,36 +1,43 @@
-/* main layout */
-
-.main-layout{
-    display: grid;
-    grid-template-columns: minmax(20px,1fr) minmax(auto,470px)  minmax(auto,470px) minmax(20px,1fr);
+.meme-continer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
-.main-layout > *{
-grid-column: 2/-2;
+ .meme-editor {
+    justify-content: center;
+    flex-direction: row;  
+    gap: 0.5em;
 }
 
-.main-layout > .full {
-    grid-column: 1/-1;
-   background-color: rgba(98, 98, 98, 0.5);
-}
-
-/* card layout*/
-
-.card{
-    display: grid;
-    grid-template-columns:29.3rem 2.56rem 24rem 2.56rem;
-    grid-template-rows: 6rem 8rem 5.4rem;
-    padding-top: 1.2em;
-} 
-
-.card-image{
-    grid-column: 1;
-    grid-row: span 3;
+.editor-btns {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    
     
 }
-.card> :not(.card-image){
-    grid-column: 3;
+
+.stickers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
+.editor-btns > *{
+   font-size: 2em;
+    background-color: transparent;
+    border-radius: 1.5rem;
+    width: 25rem;
+    height: 2rem;
+}
 
-   
+.stickers > * {
+    font-size: 1em;
+    width: 25rem;
+    height: 2rem;
+    font-size: em;
+    background-color: transparent;
+    border-radius: 1.5rem;
+}

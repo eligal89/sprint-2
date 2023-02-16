@@ -118,12 +118,7 @@ function getImgs (){
 
 
 
-//this function will get the id of the MEMEIMG from gallery and i can canvas the img
-// function getClickedMeme(memeId) {
-//     console.log('memeId', memeId);
-//     console.log('gMeme', gMeme);
-    
-//     }
+
 
 
 

@@ -1,20 +1,12 @@
 .main-header {
- height: 160px;   
- background-color: #1e1e1e;;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: orange;
+    margin: 0.5rem 2rem;
 }
 
-ul {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 100px;
+.logo {
+    width: 100px;
 }
-
-a {
-    text-shadow: 0 1px 0 #1e1e1e;
-    color: #ffffff;
-}
-
-.green-a  {
-    color: #58c93a;
-}
-

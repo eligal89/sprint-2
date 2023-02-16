@@ -1,4 +1,4 @@
-.flex{
+/* .flex{
     display: flex;
 }
 
@@ -8,12 +8,12 @@
 
 .flex.align-center {
     align-items: center;
-}
+} */
 
 /* list helpers */
-.clean-list{
+/* .clean-list{
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
+} */
 

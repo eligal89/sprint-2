@@ -5,14 +5,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="css/styles/style.css">
     <title>SPRINT 2</title>
 </head>
 
 <!-- *************** fisrt function that works + nav bar ********************  -->
-<body onload="renderMemsImgs(), init()" >
+
+<body onload="renderMemsImgs()">
     <header class="main-header flex space-between align-center full">
-        <div class="logo">Blogo</div>
+        <div class="logo"><img src="img/LOGO.png"></div>
         <nav class="main-nav">
             <ul class="main-manu clean-list ">
                 <li><a href="#">Gallery</a></li>
@@ -25,6 +27,7 @@
 
     <!-- this line will get all of the imgs -->
     <section class="meme-continer"> </section>
+    <button class="flexible-btn" OnClick="onFlexClick()">im flexible</button>
     <!-- end of section that gets the imgs -->
 
 
@@ -33,17 +36,45 @@
     <section class="meme-editor">
         <div class="canvas-container">
             <canvas id="my-canvas" height="600" width="600"> </canvas>
-
-           
-                <input type="text" class="memeInput" placeholder="Type your meme...">
+        </div>
+        <div class="editor-btns">
+            <div>
                 <button onclick="onSetText()">create!</button>
-           
+                <input type="text" class="memeInput" placeholder="Type your meme...">
+            </div>
 
+<button class="switch-lines"onclick="onSelectLine(this)">switch</button>
+            
             <button class="+" onclick="onMakeSign(this)">+</button>
             <button class="-" onclick="onMakeSign(this)">-</button>
-            <input type="color" onchange="onSetStrokeColor(this)">change stroke color </input>
-            <input type="color" value="#FFFFFF" onchange="onSetTxtColor(this)">change text color</input>
+            <div>
+                <input type="color" onchange="onSetStrokeColor(this)">change stroke color </input>
+
+                <input type="color" value="#FFFFFF" onchange="onSetTxtColor(this)">change text color</input>
+            </div>
+
+            <div class="stickers">
+                <button>x</button>
+                <button>y</button>
+                <button>z</button>
+                <button>k</button>
+            </div>
+
+            <div class="share">
+                <button>
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                </button>
+
+                <button class="btn" onclick="onUploadImg()">
+                    Upload Image from Canvas
+                </button>
+            </div>
+
+
+
         </div>
+
+
     </section>
     <!-- ************ end of continer section *************** -->
 

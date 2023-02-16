@@ -2,32 +2,33 @@
 
 var gElCanvas
 var gCtx
-//                                                    ****************** not sure yet?!
-function init() {
+var gLine = 1
+
+// function init() {
+//     console.log('hello');
+    
+//     let elMemeGallery = document.querySelector('.meme-gallery')
+//      elMemeGallery.style.display = 'block'
+//  }
+
+
+
+//    *********************************** this function gets the memes => render it, and drew text on him 
+function renderMeme() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
-}
 
-
-
-//                  *********************************** this function gets the memes => render it, and drew text on him 
-function renderMeme() {
-    // gElCanvas = document.querySelector('#my-canvas')
-    // gCtx = gElCanvas.getContext('2d')
     const meme =  getMeme()
-    console.log('meme', meme);
     
-    const {selectedImgId } = getMeme()
+    
+    const {selectedImgId , place  } = getMeme()
     drawImg(selectedImgId)
 
-    const [{size, txt, align, color, strokeColor}] = meme.lines;
-    console.log('color', color);
-    console.log('strokeColor', strokeColor);
+    const [{size, txt1, txt2, align, color, strokeColor}] = meme.lines;
+    console.log(size, txt1, txt2, align, color, strokeColor);
     
-    
-     drawText(txt,strokeColor, color, 100, 200, size)
-     drawText(txt,strokeColor, color, 200, 600, size)
+    drawText(place === 1 ? txt1 : txt2, strokeColor, color, 400, place === 1 ? 200 : 600, size);
     // function drawText(size , x, y, , txt, font) {
     //     gCtx.fillStyle = size
 
@@ -46,7 +47,7 @@ function renderMeme() {
 
 
 
-//                                                          *********** USER PICKS ******************
+//                                   *********** USER PICKS ******************
 
 function onMakeSign(btn) {
     var btnSign = btn.textContent
@@ -74,7 +75,7 @@ function onSetText() {
     document.querySelector('.memeInput').value = ''
     renderMeme()
  }
- //                                                              ******CANVAS FUNCTONS****************/
+ //                                   ******CANVAS FUNCTONS****************/
 function drawImg(id) {
     let elImg = document.getElementById(id)
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -93,7 +94,57 @@ console.log('fontSize', fontSize);
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
   }
 
+
+function onSelectLine(ev) {
+    setLinePlace ()
+    renderMeme() 
+}
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
   
+// function onTxtMove (btn){
+//     var btnSign = btn.textContent
+//     console.log(btnSign);
+    
+//      const movement = (btnSign === "UP") ? 10 : -10;
+//      movement
+
+//     // changeFontSize (sizeSign)
+//     // renderMeme()
+    
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     // Note: changing the canvas dimension this way clears the canvas
@@ -101,3 +152,53 @@ function resizeCanvas() {
     // Unless needed, better keep height fixed.
     // gElCanvas.height = elContainer.offsetHeight
   }
+
+  function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}
+
+function onUploadImg() {
+    const imgDataUrl = gElCanvas.toDataURL('image/jpeg') // Gets the canvas content as an image format
+
+    // A function to be called if request succeeds
+    function onSuccess(uploadedImgUrl) {
+        // Encode the instance of certain characters in the url
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        console.log(encodedUploadedImgUrl)
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`)
+    }
+    // Send the image to the server
+    doUploadImg(imgDataUrl, onSuccess)
+}
+
+function doUploadImg(imgDataUrl, onSuccess) {
+    // Pack the image for delivery
+    const formData = new FormData()
+    formData.append('img', imgDataUrl)
+
+    // Send a post req with the image to the server
+    const XHR = new XMLHttpRequest()
+    XHR.onreadystatechange = () => {
+        // If the request is not done, we have no business here yet, so return
+        if (XHR.readyState !== XMLHttpRequest.DONE) return
+        // if the response is not ok, show an error
+        if (XHR.status !== 200) return console.error('Error uploading image')
+        const { responseText: url } = XHR
+        // Same as
+        // const url = XHR.responseText
+
+        // If the response is ok, call the onSuccess callback function, 
+        // that will create the link to facebook using the url we got
+        console.log('Got back live url:', url)
+        onSuccess(url)
+    }
+    XHR.onerror = (req, ev) => {
+        console.error('Error connecting to server with request:', req, '\nGot response data:', ev)
+    }
+    XHR.open('POST', '//ca-upload.com/here/upload.php')
+    XHR.send(formData)
+}
+
+
+
