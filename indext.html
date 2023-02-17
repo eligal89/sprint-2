@@ -34,47 +34,52 @@
     <!-- *********** continer section ************** -->
 
     <section class="meme-editor">
+
         <div class="canvas-container">
             <canvas id="my-canvas" height="600" width="600"> </canvas>
         </div>
+
         <div class="editor-btns">
+
             <div>
-                <button onclick="onSetText()">create!</button>
+                <button onclick="onSetText()">Create!</button>
                 <input type="text" class="memeInput" placeholder="Type your meme...">
-            </div>
-
-<button class="switch-lines"onclick="onSelectLine(this)">switch</button>
-            
-            <button class="+" onclick="onMakeSign(this)">+</button>
-            <button class="-" onclick="onMakeSign(this)">-</button>
-            <div>
+                <button class="add-lines reg-btn" onclick="addLine()">Add Line</button>
+                <button class="switch-lines reg-btn" onclick="onSelectLine()">Switch</button>
+                <button class="delete-line reg-btn" onclick="onDeleteLine()">Delete</button>
+                
+                
+                
+                <button class="Up reg-btn" onclick="onchangeVerticalPos(this)">Up</button>
+                <button class="Down reg-btn" onclick="onchangeVerticalPos(this)">Down</button>
+                <button class="+ reg-btn" onclick="onMakeSign(this)">+</button>
+                <button class="- reg-btn" onclick="onMakeSign(this)">-</button>
+                <button class="left reg-btn" onclick="onChangeHorizontalPos(this)">Left</button>
+                <button class="Center reg-btn" onclick="onChangeHorizontalPos(this)">Center</button>
+                <button class="Right reg-btn" onclick="onChangeHorizontalPos(this)">Right</button>
                 <input type="color" onchange="onSetStrokeColor(this)">change stroke color </input>
-
                 <input type="color" value="#FFFFFF" onchange="onSetTxtColor(this)">change text color</input>
+                
+                
+                
+                <button class="reg-btn">x</button>
+                <button class="reg-btn">y</button>
+                <button class="reg-btn">z</button>
+                <button class="reg-btn">k</button>
             </div>
+                
 
-            <div class="stickers">
-                <button>x</button>
-                <button>y</button>
-                <button>z</button>
-                <button>k</button>
-            </div>
-
-            <div class="share">
-                <button>
-                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+            <div>
+                <button class="">
+                <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
                 </button>
-
                 <button class="btn" onclick="onUploadImg()">
-                    Upload Image from Canvas
+                Upload Image from Canvas
                 </button>
             </div>
-
 
 
         </div>
-
-
     </section>
     <!-- ************ end of continer section *************** -->
 
@@ -87,3 +92,24 @@
 </body>
 
 </html>
+
+
+<!-- <div class="share">
+                
+            </div> -->
+
+
+
+<!-- 
+        
+        
+       
+           
+      
+           
+        
+   
+    
+    
+    
+        

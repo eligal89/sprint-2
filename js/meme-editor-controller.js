@@ -2,128 +2,142 @@
 
 var gElCanvas
 var gCtx
-var gLine = 1
-
-// function init() {
-//     console.log('hello');
-    
-//     let elMemeGallery = document.querySelector('.meme-gallery')
-//      elMemeGallery.style.display = 'block'
-//  }
+gElCanvas = document.querySelector('#my-canvas')
+gCtx = gElCanvas.getContext('2d')
 
 
 
-//    *********************************** this function gets the memes => render it, and drew text on him 
+
+
+
 function renderMeme() {
-    gElCanvas = document.querySelector('#my-canvas')
-    gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
-
-    const meme =  getMeme()
-    
-    
-    const {selectedImgId , place  } = getMeme()
+    const{selectedImgId} = getMeme()
     drawImg(selectedImgId)
 
-    const [{size, txt1, txt2, align, color, strokeColor}] = meme.lines;
-    console.log(size, txt1, txt2, align, color, strokeColor);
+    const meme = getMeme()
+    console.log(meme);
     
-    drawText(place === 1 ? txt1 : txt2, strokeColor, color, 400, place === 1 ? 200 : 600, size);
+    if (meme.lines.length === 0) return
+    
+    const [{size, txt, align, color, strokeColor, x , y}] = meme.lines[selectedLineIdx];
+    // console.log(size, txt, align, color, strokeColor , x , y );
+    drawText(txt, strokeColor, color, x, y, size);
+
+
+
+
+
+
+
+
+
+
     // function drawText(size , x, y, , txt, font) {
     //     gCtx.fillStyle = size
 
 
     //     gCtx.lineWidth = 1
     //     gCtx.strokeStyle = 'brown'
-      
+
     //     gCtx.font = `${size}px ${font}`
-        
+
     //     gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
     //     gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
     // }
-    
+
 }
-
-
 
 
 //                                   *********** USER PICKS ******************
 
-function onMakeSign(btn) {
-    var btnSign = btn.textContent
-   const sizeSign = (btnSign === "+") ? 1 : -1;
-   changeFontSize (sizeSign)
-   renderMeme()
+//web side DONE
+function onSetText() {
+    const elInput = document.querySelector('.memeInput')
+    // console.log(elInput.value);
+    if (elInput.value === '') return
+    setMemeText(elInput.value)
+    document.querySelector('.memeInput').value = ''
+    renderMeme()
 }
 
+//web side DONE
+function onMakeSign(btn) {
+    const btnSign = btn.textContent
+    const sizeSign = (btnSign === "+") ? 1 : -1;
+    changeFontSize(sizeSign)
+    renderMeme()
+}
+
+//web side DONE
 function onSetStrokeColor(ev) {
     const StrokeColor = ev.value
-    setStrokeColor (StrokeColor)
+    setStrokeColor(StrokeColor)
     renderMeme()
-    
+
 }
 
+// web side DONE
 function onSetTxtColor(ev) {
     const textColor = ev.value
     setTextColor(textColor)
-    
+    renderMeme()
 }
 
-function onSetText() {
-    const elInput = document.querySelector('.memeInput')
-    setMemeText (elInput.value)
-    document.querySelector('.memeInput').value = ''
+//delete the new line was add - web side DONE
+function onDeleteLine() {
+    deleteText()
+    renderMeme()
+}
+
+// this funtion will mot the text on the X line - web side DONE
+ function onChangeHorizontalPos(position){
+    setHorizontalTextPos(position.textContent)
     renderMeme()
  }
- //                                   ******CANVAS FUNCTONS****************/
+
+function onchangeVerticalPos (verPosition) {
+        moveText(verPosition.textContent)
+        renderMeme()
+// console.log('position.textContent', position.textContent);
+}
+
+
+
 function drawImg(id) {
     let elImg = document.getElementById(id)
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
 function drawText(text, strokeColor, color, x, y, fontSize) {
-console.log(text,strokeColor, color, x, y, fontSize);
-console.log('color', color);
-console.log('fontSize', fontSize);
-
+    // console.log(text, strokeColor, color, x, y, fontSize);
+  
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
     // gCtx.fillStyle = 'pink'
     gCtx.font = `${fontSize}px Arial`
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
-  }
-
-
-function onSelectLine(ev) {
-    setLinePlace ()
-    renderMeme() 
 }
-   
-    
+
+
+function onSelectLine() {
+    setLinePlace()
+    renderMeme()
+}
 
 
 
+// FUNCTIONS THAT I NEED TO BUILD
+// function addLine() {
+//     const { place } = getMeme()
+//     console.log(place);
+//     // let counterUp = 150
+//     // let counterDown = 450
+// }
 
-
-
-
-
-
-
-
-
-  
-// function onTxtMove (btn){
-//     var btnSign = btn.textContent
-//     console.log(btnSign);
-    
-//      const movement = (btnSign === "UP") ? 10 : -10;
-//      movement
-
-//     // changeFontSize (sizeSign)
-//     // renderMeme()
-    
+// function onDeleteLine() {
+//     deleteText()
 // }
 
 
@@ -137,13 +151,17 @@ function onSelectLine(ev) {
 
 
 
+// function onTxtMove (btn){
+//     var btnSign = btn.textContent
+//     console.log(btnSign);
 
+//      const movement = (btnSign === "UP") ? 10 : -10;
+//      movement
 
+//     // changeFontSize (sizeSign)
+//     // renderMeme()
 
-
-
-
-
+// }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
@@ -151,9 +169,9 @@ function resizeCanvas() {
     gElCanvas.width = elContainer.offsetWidth
     // Unless needed, better keep height fixed.
     // gElCanvas.height = elContainer.offsetHeight
-  }
+}
 
-  function downloadImg(elLink) {
+function downloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     elLink.href = imgContent
 }
@@ -165,7 +183,7 @@ function onUploadImg() {
     function onSuccess(uploadedImgUrl) {
         // Encode the instance of certain characters in the url
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        console.log(encodedUploadedImgUrl)
+        // console.log(encodedUploadedImgUrl)
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`)
     }
     // Send the image to the server

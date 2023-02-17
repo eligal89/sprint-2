@@ -1,3 +1,13 @@
+.main-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: orange;
+    margin: 0.5rem 2rem;
+}
+
+/* galleray */
 .meme-continer {
     display: flex;
     justify-content: center;
@@ -5,18 +15,25 @@
     align-content: center;
 }
 
- .meme-editor {
+
+/* meme pic and buttons  */
+.meme-editor { 
     justify-content: center;
     flex-direction: row;  
     gap: 0.5em;
+    margin-top: 1rem;
 }
 
+/* meme pic */
+.canvas-container {
+    margin-right: 2rem
+}
+
+/* meme buttons */
 .editor-btns {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-    
-    
+    justify-content: space-between
 }
 
 .stickers{
@@ -40,4 +57,20 @@
     font-size: em;
     background-color: transparent;
     border-radius: 1.5rem;
+}
+
+.reg-btn {
+    font-size: 1rem;
+    margin: 0.4rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.meme-editor .editor-btns>* {
+    margin: 0.8rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
 }

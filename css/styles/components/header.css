@@ -1,12 +1,4 @@
-.main-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 30px;
-    background-color: orange;
-    margin: 0.5rem 2rem;
-}
-
 .logo {
     width: 100px;
 }
+
