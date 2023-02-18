@@ -109,3 +109,14 @@ span {
     color: white;
     border: none;
  }
+
+ .meme-search {
+   
+    width: 20rem;
+    height: 2rem;
+
+ }
+ .upper-btns{
+    display: flex;
+    justify-content: space-around;
+ }

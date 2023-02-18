@@ -65,5 +65,4 @@ function filterGallery (value) {
     })
     const elMemeImgs =  document.querySelector('.meme-continer')
     elMemeImgs.innerHTML = strHTML
-
 }
