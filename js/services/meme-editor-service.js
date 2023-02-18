@@ -4,7 +4,7 @@
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 } // not yet
 
-var gLinePlace = 1
+var gLinePlace 
 var selectedLineIdx = -1
 
 //                                         **********************   MEME MODAL
@@ -34,11 +34,12 @@ function setStrokeColor(strokeColor) {
 }
 
 function setMemeText(text) {
-    console.log(gLinePlace);
+    console.log(text);
+    gLinePlace = 1
     selectedLineIdx++
     // console.log(gLinePlace);
 
-    gMeme.lines[selectedLineIdx] = {
+     gMeme.lines[selectedLineIdx] = {
         size: 30,
         txt: text,
         color: 'white',
@@ -102,17 +103,25 @@ function moveText(direction){
     gMeme.lines[selectedLineIdx].y = direction === 'Up' ? Math.max(y - 10, 20) : Math.min(y + 10, 580)
 }
 
+function setEmoji (emoji) {
+
+    console.log(emoji);
+    gLinePlace = 1
+    selectedLineIdx++
+    // console.log(gLinePlace);
+
+     gMeme.lines[selectedLineIdx] = {
+        size: 30,
+        txt: emoji,
+        x: 300,
+        y: 150 //(gLinePlace === 1 ? 150 : 450)
+    }
+    return
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-//                              ********** END OF functions that gets the vlas from the USER CONTROLER => change gMeme **************
+function clearCanvas() {
+ gMeme.lines.length = 0
+ gMeme.lines.length = null
+}
+ 

@@ -2,50 +2,20 @@
 
 var gElCanvas
 var gCtx
-gElCanvas = document.querySelector('#my-canvas')
-gCtx = gElCanvas.getContext('2d')
-
-
-
-
 
 
 function renderMeme() {
-    resizeCanvas()
-    const{selectedImgId} = getMeme()
-    drawImg(selectedImgId)
-
+    gElCanvas = document.querySelector('#my-canvas')
+    gCtx = gElCanvas.getContext('2d')
     const meme = getMeme()
-    console.log(meme);
-    
+
+    const{selectedImgId} = meme
+    drawImg(selectedImgId)
     if (meme.lines.length === 0) return
-    
-    const [{size, txt, align, color, strokeColor, x , y}] = meme.lines[selectedLineIdx];
-    // console.log(size, txt, align, color, strokeColor , x , y );
-    drawText(txt, strokeColor, color, x, y, size);
-
-
-
-
-
-
-
-
-
-
-    // function drawText(size , x, y, , txt, font) {
-    //     gCtx.fillStyle = size
-
-
-    //     gCtx.lineWidth = 1
-    //     gCtx.strokeStyle = 'brown'
-
-    //     gCtx.font = `${size}px ${font}`
-
-    //     gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
-    //     gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
-    // }
-
+    meme.lines.forEach(line => {
+        drawText(line.txt, line.strokeColor, line.color, line.x, line.y, line.size);
+    });
+    // const {size, txt, align, color, strokeColor, x , y} = meme.lines
 }
 
 
@@ -54,7 +24,7 @@ function renderMeme() {
 //web side DONE
 function onSetText() {
     const elInput = document.querySelector('.memeInput')
-    // console.log(elInput.value);
+    console.log(elInput);
     if (elInput.value === '') return
     setMemeText(elInput.value)
     document.querySelector('.memeInput').value = ''
@@ -63,7 +33,7 @@ function onSetText() {
 
 //web side DONE
 function onMakeSign(btn) {
-    const btnSign = btn.textContent
+    const btnSign = btn.id
     const sizeSign = (btnSign === "+") ? 1 : -1;
     changeFontSize(sizeSign)
     renderMeme()
@@ -92,12 +62,14 @@ function onDeleteLine() {
 
 // this funtion will mot the text on the X line - web side DONE
  function onChangeHorizontalPos(position){
-    setHorizontalTextPos(position.textContent)
+    console.log(position.id);
+    
+    setHorizontalTextPos(position.id)
     renderMeme()
  }
 
 function onchangeVerticalPos (verPosition) {
-        moveText(verPosition.textContent)
+        moveText(verPosition.id)
         renderMeme()
 // console.log('position.textContent', position.textContent);
 }
@@ -126,42 +98,6 @@ function onSelectLine() {
     renderMeme()
 }
 
-
-
-// FUNCTIONS THAT I NEED TO BUILD
-// function addLine() {
-//     const { place } = getMeme()
-//     console.log(place);
-//     // let counterUp = 150
-//     // let counterDown = 450
-// }
-
-// function onDeleteLine() {
-//     deleteText()
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-// function onTxtMove (btn){
-//     var btnSign = btn.textContent
-//     console.log(btnSign);
-
-//      const movement = (btnSign === "UP") ? 10 : -10;
-//      movement
-
-//     // changeFontSize (sizeSign)
-//     // renderMeme()
-
-// }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
@@ -218,5 +154,9 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.send(formData)
 }
 
-
+function onSetEmoji (emojiSymbel){
+const emoji = emojiSymbel
+    setEmoji(emoji)
+     renderMeme()
+}
 

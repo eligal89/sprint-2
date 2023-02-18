@@ -43,6 +43,7 @@ function onFlexClick() {
     imgs = getImgs()
     const rand = getRandomIntInclusive(1, 18)
     getClickedMeme(imgs[rand].id)
+    clearCanvas()
     renderMeme()
 }
 

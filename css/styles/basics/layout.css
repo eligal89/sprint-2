@@ -33,34 +33,23 @@
 .editor-btns {
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
+    border: 1px solid;
 }
 
-.stickers{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
 
-.editor-btns > *{
+
+/* .editor-btns > *{
    font-size: 2em;
     background-color: transparent;
     border-radius: 1.5rem;
     width: 25rem;
     height: 2rem;
-}
+} */
 
-.stickers > * {
-    font-size: 1em;
-    width: 25rem;
-    height: 2rem;
-    font-size: em;
-    background-color: transparent;
-    border-radius: 1.5rem;
-}
 
 .reg-btn {
-    font-size: 1rem;
+    font-size: 17px;
     margin: 0.4rem;
     width: 3.5rem;
     height: 3.5rem;
@@ -70,7 +59,53 @@
 }
 
 .meme-editor .editor-btns>* {
-    margin: 0.8rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
 }
+
+.input-text {
+   
+    border-radius: 2rem;
+    height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+
+}
+.input-color{
+    width: 5rem;
+    font-size: 2rem;
+    
+}
+
+.main-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+span {
+    font-size: 2rem;
+}
+
+.upload-btn {
+    font-size: 1.6rem;
+   
+}
+
+.upload-btn:hover {
+    transition: 1s;
+    color: rgb(247, 223, 64);
+    cursor: pointer;
+}  
+
+
+ .active {
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+
+ .active >* {
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+ }
