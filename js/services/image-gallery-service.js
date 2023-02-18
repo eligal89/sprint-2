@@ -5,25 +5,25 @@ var gImgs
 gImgs = [{
     id: 1,
     url: 'img/1.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['funny', 'cat', 'politic', 'trump' ]
 },
 
 {
     id: 2,
     url: 'img/2.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['funny', 'cat', 'dog']
 },
 
 {
     id: 3,
     url: 'img/3.jpg',
-    keywords: ['funny', 'cat']
+    keywords: [ 'cat', 'dog']
 },
 
 {
     id: 4,
     url: 'img/4.jpg',
-    keywords: ['funny', 'cat']
+    keywords: [  'cat']
 },
 {
     id: 5,
@@ -58,7 +58,7 @@ gImgs = [{
 {
     id: 10,
     url: 'img/11.jpg',
-    keywords: ['funny', 'cat']
+    keywords: [ 'sport']
 },
 
 {
@@ -101,7 +101,7 @@ gImgs = [{
 {
     id: 17,
     url: 'img/17.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['funny', 'cat', 'politic' , 'putin']
 },
 
 {

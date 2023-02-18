@@ -52,3 +52,33 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+function filterGallery(val) {
+    console.log('hello');
+    let imgs = getImgs();
+    const filteredImages = imgs.filter(img => img.keywords.find(k => k.startsWith(val)))
+
+    const strHTML = '';
+    strHTML = filteredImages.map(function(img) {
+        return strHTML = `<button class="gallery-images"><img onclick="onImageSelect('${img.id}')" id="${img.id}" src="${img.url}"></button>`
+    })
+    const elMemeGallery = document.querySelector('.meme-continer');
+    elMemeGallery.innerHTML = strHTML.join('');
+
+}
+
+
+
+function filterGallery (value) {
+
+    let imgs = getImgs()
+    const filterdImgs = imgs.filter(img => img.keywords.find (keyword => keyword.startsWith(value)))
+    let strHTML = ''
+    strHTML = filterdImgs.map(function (img) {
+        return strHTML = `<button class="gallery-imgs"> <img OnClick="onImgSelect(this)" id="${img.id}" src="${img.url}"></button>
+        `
+    })
+    const elMemeImgs =  document.querySelector('.meme-continer')
+    elMemeImgs.innerHTML = strHTML
+
+}
