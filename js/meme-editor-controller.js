@@ -5,8 +5,12 @@ var gCtx
 
 
 function renderMeme() {
+    const gElserch =document.querySelector('.meme-search') 
+    gElserch.style.display = 'none'
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    const gElflexibleBtn =document.querySelector('.flexible-btn')
+    gElflexibleBtn.style.display = 'block'
     const meme = getMeme()
 
     const{selectedImgId} = meme
@@ -30,8 +34,7 @@ function onSetText() {
 }
 
 function onMakeSign(btn) {
-    const btnSign = btn.id
-    const sizeSign = (btnSign === "+") ? 1 : -1;
+    const sizeSign = (btn === "+") ? 1 : -1;
     changeFontSize(sizeSign)
     renderMeme()
 }
@@ -56,14 +59,16 @@ function onDeleteLine() {
 }
 
  function onChangeHorizontalPos(position){
-    console.log(position.id);
+    console.log(position);
     
-    setHorizontalTextPos(position.id)
+    setHorizontalTextPos(position)
     renderMeme()
  }
 
 function onchangeVerticalPos (verPosition) {
-        moveText(verPosition.id)
+    console.log(verPosition);
+    
+        moveText(verPosition)
         renderMeme()
 // console.log('position.textContent', position.textContent);
 }
@@ -173,12 +178,9 @@ function onEditLine () {
     setEdit()
 }
 
-
 function onInputChange(txt){
      let input =setInputChange(txt)
     console.log(input);
-    drawText(input.txt, input.strokeColor, input.color, input.x, input.y, input.size);
-    
-    
-    }
+    drawText(input.txt, input.strokeColor, input.color, input.x, input.y, input.size);  
+ }
     

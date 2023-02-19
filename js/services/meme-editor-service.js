@@ -94,6 +94,8 @@ function downloadImg(elLink) {
 }
 
 function moveText(direction){
+    console.log(direction);
+    
     const y = gMeme.lines[selectedLineIdx].y
     gMeme.lines[selectedLineIdx].y = direction === 'Up' ? Math.max(y - 10, 20) : Math.min(y + 10, 580)
 }
@@ -132,10 +134,14 @@ function clearCanvas() {
 function setEdit() {
     selectedLineIdx --
     if (selectedLineIdx<0) selectedLineIdx = gMeme.lines.length
+    console.log(selectedLineIdx);
+    
 }
 
 function setInputChange (txt) {
     let someText
+    console.log(someText);
+    
    return someText= {
         size: 30,
         txt,

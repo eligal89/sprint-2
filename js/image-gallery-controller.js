@@ -7,6 +7,8 @@ let imgs
 
 //the function the onlode first => puts all the imgs as a buttons on the web page
 function renderMemsImgs() {
+    const gElflexibleBtn =document.querySelector('.flexible-btn')
+    gElflexibleBtn.style.display = 'none'
     elMemeEditor = document.querySelector('.meme-editor')
     elMemeEditor.style.display = 'none'
     imgs = getImgs()
@@ -34,6 +36,7 @@ function onImgSelect(ev) {
 function changeStyle() {
     elMemeImgs.style.display = 'none'
     elMemeEditor.style.display = 'flex'
+ 
 }
 
 

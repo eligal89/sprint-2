@@ -11,7 +11,6 @@
     <script src="https://kit.fontawesome.com/d40918cdf2.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- *************** fisrt function that works + nav bar ********************  -->
 
 <body onload="renderMemsImgs()">
     <header class="main-header flex space-between align-center full">
@@ -54,49 +53,44 @@
         </div>
 
         <div class="editor-btns">
-
             <div>
-               
-              
                 <button class="reg-btn" onclick="onSetText()">Create!</button>
                 <input  oninput="onInputChange(this.value)" type="text" class="memeInput input-text" placeholder="Type your meme...">
-                <!-- onkeyup="something()" -->
-                oninput
             </div>
-            <div><button class="reg-btn"" onclick="onRandomPlace()"><i class="fa-sharp fa-solid fa-shuffle"></i></button> </div>
+            <div><button title="Random Place" class="reg-btn"" onclick="onRandomPlace()"><i class="fa-sharp fa-solid fa-shuffle"></i></button> </div>
             <div>
-                <button class="add-lines reg-btn" onclick="onEditLine()"><i class="fa-solid fa-plus"></i>edit</button>
-                <button class="switch-lines reg-btn" onclick="onSelectLine()"><i
+                <button title="Edit" class="add-lines reg-btn" onclick="onEditLine()"><i class="fa-solid fa-plus"></i>edit</button>
+                <button title="Select Line" class="switch-lines reg-btn" onclick="onSelectLine()"><i
                         class="fa-solid fa-arrows-up-down"></i></button>
-                <button class="delete-line reg-btn" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
+                <button title="Delete" class="delete-line reg-btn" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
             </div>
 
             <div>
-                <button id="Up" class="Up reg-btn" onclick="onchangeVerticalPos(this)"><i
+                <button title="Up" class="Up reg-btn" onclick="onchangeVerticalPos('Up')"><i
                         class="fa-solid fa-arrow-up"></i> </button>
-                <button id="Down" class="Down reg-btn" onclick="onchangeVerticalPos(this)"><i
+                <button title="Down" class="Down reg-btn" onclick="onchangeVerticalPos('Down')"><i
                         class="fa-solid fa-arrow-down"></i></button>
-                <button id="Left" class="left reg-btn" onclick="onChangeHorizontalPos(this)"><i
+                <button title="Left" class="left reg-btn" onclick="onChangeHorizontalPos('Left')"><i
                         class="fa-solid fa-align-left"></i></button>
-                <button id="Center" class="Center reg-btn" onclick="onChangeHorizontalPos(this)"><i
+                <button title="Center" class="Center reg-btn" onclick="onChangeHorizontalPos('Center')"><i
                         class="fa-solid fa-align-center"></i></button>
-                <button id="Right" class="Right reg-btn" onclick="onChangeHorizontalPos(this)"><i
+                <button  title="Right" class="Right reg-btn" onclick="onChangeHorizontalPos('Right')"><i
                         class="fa-solid fa-align-right"></i></button>
             </div>
 
             <div>
-                <button id="+" class="+ reg-btn" onclick="onMakeSign(this)"><i class="fa-solid fa-font"></i><i
+                <button title="biger font" class="+ reg-btn" onclick="onMakeSign('+')"><i class="fa-solid fa-font"></i><i
                         class="fa-solid fa-plus"></i></i></button>
-                <button class="- reg-btn" onclick="onMakeSign(this)"><i class="fa-solid fa-font"></i><i
+                <button title="smaller font" class="- reg-btn" onclick="onMakeSign('-')"><i class="fa-solid fa-font"></i><i
                         class="fa-solid fa-minus"></i></button>
             </div>
 
             <div>
-                <input class="input-color" type="color" onchange="onSetStrokeColor(this)"> <span> <i class="fa-solid fa-paintbrush">change stroke color</i></span> </input>
+                <input title="stroke color" class="input-color" type="color" onchange="onSetStrokeColor(this)"> <span> <i class="fa-solid fa-paintbrush">change stroke color</i></span> </input>
             </div>
 
             <div>
-                <input class="input-color" type="color" value="#FFFFFF" onchange="onSetTxtColor(this)"> <span><i
+                <input title="text color" class="input-color" type="color" value="#FFFFFF" onchange="onSetTxtColor(this)"> <span><i
                         class="fa-solid fa-paintbrush"> change text color</i></span></input>
             </div>
 
