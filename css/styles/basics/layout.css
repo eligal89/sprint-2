@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 30px;
     background-color: orange;
-    margin: 0.5rem 2rem;
+   
 }
 
 /* galleray */
@@ -119,4 +119,12 @@ span {
  .upper-btns{
     display: flex;
     justify-content: space-around;
+    margin: 1rem;
+ }
+
+ .last-section{
+    background-color: orange;
+    margin-top: 2rem;
+    height: 100vh;
+    flex-basis: 1;
  }

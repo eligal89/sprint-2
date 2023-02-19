@@ -15,13 +15,11 @@ function renderMeme() {
     meme.lines.forEach(line => {
         drawText(line.txt, line.strokeColor, line.color, line.x, line.y, line.size);
     });
+    
     // const {size, txt, align, color, strokeColor, x , y} = meme.lines
 }
 
 
-//                                   *********** USER PICKS ******************
-
-//web side DONE
 function onSetText() {
     const elInput = document.querySelector('.memeInput')
     console.log(elInput);
@@ -31,7 +29,6 @@ function onSetText() {
     renderMeme()
 }
 
-//web side DONE
 function onMakeSign(btn) {
     const btnSign = btn.id
     const sizeSign = (btnSign === "+") ? 1 : -1;
@@ -39,7 +36,6 @@ function onMakeSign(btn) {
     renderMeme()
 }
 
-//web side DONE
 function onSetStrokeColor(ev) {
     const StrokeColor = ev.value
     setStrokeColor(StrokeColor)
@@ -47,20 +43,18 @@ function onSetStrokeColor(ev) {
 
 }
 
-// web side DONE
 function onSetTxtColor(ev) {
     const textColor = ev.value
     setTextColor(textColor)
     renderMeme()
 }
 
-//delete the new line was add - web side DONE
+
 function onDeleteLine() {
     deleteText()
     renderMeme()
 }
 
-// this funtion will mot the text on the X line - web side DONE
  function onChangeHorizontalPos(position){
     console.log(position.id);
     
@@ -74,8 +68,6 @@ function onchangeVerticalPos (verPosition) {
 // console.log('position.textContent', position.textContent);
 }
 
-
-
 function drawImg(id) {
     let elImg = document.getElementById(id)
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -87,17 +79,15 @@ function drawText(text, strokeColor, color, x, y, fontSize) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
     // gCtx.fillStyle = 'pink'
-    gCtx.font = `${fontSize}px Arial`
+    gCtx.font = `${fontSize}px Impact`
     gCtx.fillText(text, x, y) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text, x, y) // Draws (strokes) a given text at the given (x, y) position.
 }
-
 
 function onSelectLine() {
     setLinePlace()
     renderMeme()
 }
-
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
@@ -160,3 +150,35 @@ const emoji = emojiSymbel
      renderMeme()
 }
 
+function onRandomPlace (){
+    console.log('');
+    
+    const elInput = document.querySelector('.memeInput')
+    if (elInput.value === '') return
+    SetRandomPlace(elInput.value)
+    document.querySelector('.memeInput').value = ''
+    renderMeme()
+}
+
+// function something(){
+//     const elInput = document.querySelector('.memeInput')
+//     console.log(elInput);
+//     if (elInput.value === '') return
+//     setMemeText(elInput.value)
+//     renderMeme()
+// }
+
+
+function onEditLine () {
+    setEdit()
+}
+
+
+function onInputChange(txt){
+     let input =setInputChange(txt)
+    console.log(input);
+    drawText(input.txt, input.strokeColor, input.color, input.x, input.y, input.size);
+    
+    
+    }
+    
