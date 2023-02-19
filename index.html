@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>SPRINT 2</title>
+    <script src="https://kit.fontawesome.com/d40918cdf2.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- *************** fisrt function that works + nav bar ********************  -->
+
+<body onload="renderMemsImgs()">
+    <header class="main-header flex space-between align-center full">
+
+        <div class="logo"><a href="#"><img src="img/LOGO.png"></a></div>
+        <nav class="main-nav">
+            <ul class="main-manu clean-list ">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="upper-btns">
+
+        <div>
+            <input type="text" class="meme-search " name="meme-type" id="meme-tag" list="meme-titles"
+                placeholder="Search" onkeyup="filterGallery(this.value)">
+            <datalist id="meme-titles">
+                <option>trump</option>
+                <option>politic</option>
+                <option>funny</option>
+                <option>dog</option>
+                <option>trump</option>
+                <option>putin</option>
+                <option>sport</option>
+            </datalist>
+        </div>
+        <div>
+            <button class="flexible-btn" OnClick="onFlexClick()">im flexible</button>
+        </div>
+    </div>
+    
+    <section class="meme-continer"> </section>
+
+    <section class="meme-editor">
+
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="600" width="600"> </canvas>
+        </div>
+
+        <div class="editor-btns">
+
+            <div>
+               
+              
+                <button class="reg-btn" onclick="onSetText()">Create!</button>
+                <input  oninput="onInputChange(this.value)" type="text" class="memeInput input-text" placeholder="Type your meme...">
+                <!-- onkeyup="something()" -->
+                oninput
+            </div>
+            <div><button class="reg-btn"" onclick="onRandomPlace()"><i class="fa-sharp fa-solid fa-shuffle"></i></button> </div>
+            <div>
+                <button class="add-lines reg-btn" onclick="onEditLine()"><i class="fa-solid fa-plus"></i>edit</button>
+                <button class="switch-lines reg-btn" onclick="onSelectLine()"><i
+                        class="fa-solid fa-arrows-up-down"></i></button>
+                <button class="delete-line reg-btn" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
+            </div>
+
+            <div>
+                <button id="Up" class="Up reg-btn" onclick="onchangeVerticalPos(this)"><i
+                        class="fa-solid fa-arrow-up"></i> </button>
+                <button id="Down" class="Down reg-btn" onclick="onchangeVerticalPos(this)"><i
+                        class="fa-solid fa-arrow-down"></i></button>
+                <button id="Left" class="left reg-btn" onclick="onChangeHorizontalPos(this)"><i
+                        class="fa-solid fa-align-left"></i></button>
+                <button id="Center" class="Center reg-btn" onclick="onChangeHorizontalPos(this)"><i
+                        class="fa-solid fa-align-center"></i></button>
+                <button id="Right" class="Right reg-btn" onclick="onChangeHorizontalPos(this)"><i
+                        class="fa-solid fa-align-right"></i></button>
+            </div>
+
+            <div>
+                <button id="+" class="+ reg-btn" onclick="onMakeSign(this)"><i class="fa-solid fa-font"></i><i
+                        class="fa-solid fa-plus"></i></i></button>
+                <button class="- reg-btn" onclick="onMakeSign(this)"><i class="fa-solid fa-font"></i><i
+                        class="fa-solid fa-minus"></i></button>
+            </div>
+
+            <div>
+                <input class="input-color" type="color" onchange="onSetStrokeColor(this)"> <span> <i class="fa-solid fa-paintbrush">change stroke color</i></span> </input>
+            </div>
+
+            <div>
+                <input class="input-color" type="color" value="#FFFFFF" onchange="onSetTxtColor(this)"> <span><i
+                        class="fa-solid fa-paintbrush"> change text color</i></span></input>
+            </div>
+
+            <div>
+                <button onclick="onSetEmoji('&#x1F602')" class="reg-btn">&#x1F602</button>
+                <button onclick="onSetEmoji('&#x1F603')" class="reg-btn">&#x1F603</button>
+                <button onclick="onSetEmoji('&#x1F601')" class="reg-btn">&#x1F601</button>
+                <button onclick="onSetEmoji('&#x1F60D')" class="reg-btn">&#x1F60D</button>
+            </div>
+
+
+            <div class="active">
+                <button class="download-btn">
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><i
+                            class="fas fa-download"> Download</i></a>
+                </button>
+                <button onclick="onUploadImg()">
+                    <span class="upload-btn"><i class="fa-solid fa-upload"> Upload </i> </span>
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="last-section"></section>
+    <script src="js/services/meme-editor-service.js"></script>
+    <script src="js/image-gallery-controller.js"></script>
+    <script src="js/meme-editor-controller.js"></script>
+    <script src="js/services/image-gallery-service.js"></script>
+</body>
+
+</html>

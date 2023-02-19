@@ -1,0 +1,130 @@
+.main-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: orange;
+   
+}
+
+/* galleray */
+.meme-continer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+
+/* meme pic and buttons  */
+.meme-editor { 
+    justify-content: center;
+    flex-direction: row;  
+    gap: 0.5em;
+    margin-top: 1rem;
+}
+
+/* meme pic */
+.canvas-container {
+    margin-right: 2rem
+}
+
+/* meme buttons */
+.editor-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid;
+}
+
+
+
+/* .editor-btns > *{
+   font-size: 2em;
+    background-color: transparent;
+    border-radius: 1.5rem;
+    width: 25rem;
+    height: 2rem;
+} */
+
+
+.reg-btn {
+    font-size: 17px;
+    margin: 0.4rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.meme-editor .editor-btns>* {
+    text-align: center;
+}
+
+.input-text {
+   
+    border-radius: 2rem;
+    height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+
+}
+.input-color{
+    width: 5rem;
+    font-size: 2rem;
+    
+}
+
+.main-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+span {
+    font-size: 2rem;
+}
+
+.upload-btn {
+    font-size: 1.6rem;
+   
+}
+
+.upload-btn:hover {
+    transition: 1s;
+    color: rgb(247, 223, 64);
+    cursor: pointer;
+}  
+
+
+ .active {
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+
+ .active >* {
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+ }
+
+ .meme-search {
+   
+    width: 20rem;
+    height: 2rem;
+
+ }
+ .upper-btns{
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+ }
+
+ .last-section{
+    background-color: orange;
+    margin-top: 2rem;
+    height: 100vh;
+    flex-basis: 1;
+ }
